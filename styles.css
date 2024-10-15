@@ -1,0 +1,103 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #000;
+    color: #fff;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #111;
+}
+
+.navbar h1 {
+    font-size: 2rem;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+}
+
+.navbar ul li {
+    margin-left: 1rem;
+}
+
+.navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.navbar ul li a:hover {
+    color: #0C8848; /* Menambahkan efek hover */
+}
+
+.content {
+    padding: 2rem;
+    text-align: center;
+}
+
+.playlist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding-top: 2rem;
+}
+
+.playlist-item {
+    background-color: #222;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.2s; /* Efek hover */
+}
+
+.playlist-item:hover {
+    transform: scale(1.05); /* Efek zoom pada item */
+}
+
+.playlist-item img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.playlist-item h3 {
+    margin-top: 1rem;
+    font-size: 1.2rem; /* Menyesuaikan ukuran font */
+}
+
+button {
+    background-color: #f9f9ff; /* Warna tombol */
+    color: #000000;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0B7739; /* Warna tombol saat hover */
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #111;
+    position: relative; /* Memastikan footer tetap di bawah */
+    bottom: 0;
+    width: 100%;
+}
