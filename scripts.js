@@ -5,7 +5,7 @@ let deviceId; // ID perangkat Spotify
 
 // Inisialisasi Spotify Web Playback SDK
 window.onSpotifyWebPlaybackSDKReady = () => {
-    const token = 'YOUR_SPOTIFY_ACCESS_TOKEN'; // Ganti dengan token akses pengguna Spotify
+    const token = 'BQD2HWw940__tSX5ytW8mLkZUjTxGjvLsltsYKnCXUU-lQQ2PYDYrs1uCO4b5tBD6lXxzu5uv8ODzixugug0akmr05nBNpkdmXwQWA5e1MvV6mAj6Eqel-lm-77eKTwWR-myBVoXnkffy3VAPoXrCBPLg8szq7C0rDCckPTs5-Pg9qY6-vRLYNVmD2HsNtBNUr2sdaBltpkUOBSmp1ARjvyEAA'; // Ganti dengan token akses pengguna Spotify
 
     player = new Spotify.Player({
         name: 'Stereonism Web Player',
@@ -44,17 +44,16 @@ async function playTrack(uri) {
         body: JSON.stringify({ uris: [uri] }),
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${'YOUR_SPOTIFY_ACCESS_TOKEN'}`
+            'Authorization': `Bearer ${'BQD2HWw940__tSX5ytW8mLkZUjTxGjvLsltsYKnCXUU-lQQ2PYDYrs1uCO4b5tBD6lXxzu5uv8ODzixugug0akmr05nBNpkdmXwQWA5e1MvV6mAj6Eqel-lm-77eKTwWR-myBVoXnkffy3VAPoXrCBPLg8szq7C0rDCckPTs5-Pg9qY6-vRLYNVmD2HsNtBNUr2sdaBltpkUOBSmp1ARjvyEAA'}` // Ganti dengan access token
         }
     });
 }
 
 async function fetchPlaylist(playlistId) {
     try {
-        const token = await getAccessToken();
         const response = await fetch(`https://api.spotify.com/v1/playlists/${playlistId}/tracks`, {
             headers: {
-                'Authorization': 'Bearer ' + token
+                'Authorization': 'Bearer ' + 'BQD2HWw940__tSX5ytW8mLkZUjTxGjvLsltsYKnCXUU-lQQ2PYDYrs1uCO4b5tBD6lXxzu5uv8ODzixugug0akmr05nBNpkdmXwQWA5e1MvV6mAj6Eqel-lm-77eKTwWR-myBVoXnkffy3VAPoXrCBPLg8szq7C0rDCckPTs5-Pg9qY6-vRLYNVmD2HsNtBNUr2sdaBltpkUOBSmp1ARjvyEAA' // Ganti dengan access token
             }
         });
 
@@ -109,11 +108,21 @@ function playPauseAudio(index, uri) {
 }
 
 function forwardSong(index) {
-    player.seek(currentAudio.currentTime + 10000); // Lompat ke depan 10 detik
+    player.seek(10000).then(() => {
+        console.log('Forwarded 10 seconds');
+    }); // Lompat ke depan 10 detik
 }
 
 function backwardSong(index) {
-    player.seek(currentAudio.currentTime - 10000); // Lompat ke belakang 10 detik
+    player.seek(0).then(() => {
+        console.log('Rewinded to start');
+    }); // Lompat ke belakang 10 detik atau kembali ke awal
+}
+
+function formatDuration(ms) {
+    const minutes = Math.floor(ms / 60000);
+    const seconds = ((ms % 60000) / 1000).toFixed(0);
+    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 }
 
 window.onload = () => {
