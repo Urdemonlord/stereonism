@@ -120,12 +120,41 @@ footer {
 
 .icon {
     cursor: pointer;
-    font-size: 24px;
-    margin: 0 10px;
+    font-size: 32px; /* Ukuran ikon */
+    color: #0C8848; /* Warna ikon */
+    margin: 0 15px; /* Jarak antara ikon */
 }
 
-.slider {
+/* Slider Styles */
+#seekSlider {
     margin-top: 10px;
-    width: 100%;
+    width: 100%; /* Pastikan slider mengambil lebar penuh */
+    -webkit-appearance: none; /* Hapus penampilan default */
+    appearance: none;
+    height: 5px; /* Tinggi slider */
+    background: #555; /* Warna latar belakang track */
+    border-radius: 5px; /* Sudut melengkung */
 }
 
+#seekSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px; /* Lebar thumb */
+    height: 20px; /* Tinggi thumb */
+    border-radius: 50%; /* Thumb melengkung */
+    background: #0C8848; /* Warna thumb */
+    cursor: pointer; /* Gaya kursor */
+}
+
+#seekSlider::-moz-range-thumb {
+    width: 20px; /* Lebar thumb */
+    height: 20px; /* Tinggi thumb */
+    border-radius: 50%; /* Thumb melengkung */
+    background: #0C8848; /* Warna thumb */
+    cursor: pointer; /* Gaya kursor */
+}
+
+/* Penyesuaian ikon tombol */
+.controls .icon:hover {
+    color: #fff; /* Ubah warna ikon saat hover */
+}

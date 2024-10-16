@@ -6,7 +6,6 @@
     <title>Rainfall - Streaming Audio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-    <!-- Tambahkan SDK Spotify -->
     <script src="https://sdk.scdn.co/spotify-player.js"></script>
 </head>
 <body>
@@ -19,18 +18,26 @@
                 <li><a href="#">Library</a></li>
                 <li><a href="#">Premium</a></li>
             </ul>
+            <form id="searchForm">
+                <input type="text" id="searchInput" placeholder="Search for tracks...">
+                <button type="submit">Search</button>
+            </form>
         </nav>
     </header>
-
+    
     <section class="content">
-        <h2>Top Playlists</h2>
-        <div id="playlist-container" class="playlist-grid">
-            <!-- Konten playlist akan dimuat secara dinamis dari scripts.js -->
+        <h2>Top Tracks</h2>
+        <div id="top-tracks-container" class="playlist-grid">
+            <!-- List of top tracks will be loaded here -->
         </div>
+
+        <h2>Search Results</h2>
+        <div id="playlist-container" class="playlist-grid"></div>
     </section>
 
     <footer>
-        <p>&copy; 2024 Rainfall Audio. All rights reserved.</p>
+        <p>&copy; 2024 Rainfall Entertainment. All rights reserved.</p>
+        <p>Support us on <a href="https://saweria.co/urdemonlord" target="_blank">Saweria</a></p>
     </footer>
 
     <script src="scripts.js"></script>
